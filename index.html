@@ -17,6 +17,10 @@
     .contact { text-align: center; margin-top: 2rem; }
     .blog-section { margin-top: 2rem; }
     footer { background: #1f1f1f; text-align: center; padding: 1rem; font-size: 0.9rem; color: #777; }
+    .skill-bar { margin-bottom: 1rem; }
+    .skill-label { margin-bottom: 0.3rem; }
+    .bar-container { background-color: #2e2e2e; border-radius: 20px; overflow: hidden; }
+    .bar { height: 12px; border-radius: 20px; background: #4caf50; }
   </style>
 </head>
 <body>
@@ -35,18 +39,32 @@
     <p>I’m a seasoned Cybersecurity Consultant with 4+ years of experience in Red Teaming, Web/API VAPT, and adversarial simulation. I work extensively in industries like BFSI, Healthcare, and IT. Passionate about advanced offensive security and red team operations.</p>
 
     <h2>Skills</h2>
-    <ul>
-      <li>Red Team Engagements & Infrastructure</li>
-      <li>Web, API, Network, Thick Client, and KIOSK VAPT</li>
-      <li>Cloud Security, 802.11 Testing</li>
-      <li>Risk Assessment, Compliance & Internal Audits</li>
-      <li>Adversarial Simulation: Phishing, Ransomware Emulation</li>
-    </ul>
+    <div class="skill-bar">
+      <div class="skill-label">Red Teaming & Threat Emulation</div>
+      <div class="bar-container"><div class="bar" style="width: 95%"></div></div>
+    </div>
+    <div class="skill-bar">
+      <div class="skill-label">Web Application/API </div>
+      <div class="bar-container"><div class="bar" style="width: 95%"></div></div>
+    </div>
+    <div class="skill-bar">
+      <div class="skill-label">Cloud Security</div>
+      <div class="bar-container"><div class="bar" style="width: 85%"></div></div>
+    </div>
+    <div class="skill-bar">
+      <div class="skill-label">Risk Assessment, Compliance & Internal Audits</div>
+      <div class="bar-container"><div class="bar" style="width: 80%"></div></div>
+    </div>
+    <div class="skill-bar">
+      <div class="skill-label">Infrastructure and WiFi Pentesting</div>
+      <div class="bar-container"><div class="bar" style="width: 92%"></div></div>
+    </div>
 
     <h2>Certifications</h2>
     <ul>
-      <li>OSCP - Offensive Security Certified Professional</li>
-      <li>CRTP - Certified Red Team Professional</li>
+      <li><a herf="https://www.credly.com/badges/5128690c-195f-4593-830d-7db932cc4ee7/public_url">CISA - Certified Information Systems Auditor</a></li>
+      <li><a herf="https://www.credential.net/36ea7348-f8f5-4160-b845-7eb4222171a5">OSCP - Offensive Security Certified Professional</a></li>
+      <li><a herf="https://www.credential.net/991315db-bfc9-4a50-99d4-9c75f4dd2f6a#acc.gPAGq7ci">CRTP - Certified Red Team Professional</a></li>
       <li>CEH Master - Certified Ethical Hacker</li>
     </ul>
 
@@ -70,13 +88,6 @@
       <li>Reported High/Critical Vulns to NCIIPC</li>
     </ul>
 
-    <h2>Education</h2>
-    <ul>
-      <li>MCA – Siliguri Institute of Technology (2022)</li>
-      <li>BCA – Siliguri Institute of Technology (2020)</li>
-      <li>Class XII – Jermel’s Academy, Siliguri (2017)</li>
-    </ul>
-
     <div class="blog-section">
       <h2>Blog</h2>
       <p>Stay tuned for my latest blogs on Red Team tactics, adversary simulation, and capture-the-flag walkthroughs.</p>
@@ -87,8 +98,6 @@
   <section class="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:soummyamukhopadhyay@gmail.com">soummyamukhopadhyay@gmail.com</a></p>
-    <p>Phone: +91 9907078158</p>
-    <p>Location: Siliguri, WB, India</p>
   </section>
 
   <footer>
