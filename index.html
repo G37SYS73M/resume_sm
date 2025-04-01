@@ -4,28 +4,130 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Soummya Mukhopadhyay | Cybersecurity Consultant</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #0f0f0f; color: #eee; line-height: 1.6; }
-    header { background: #1f1f1f; padding: 2rem; text-align: center; }
-    header h1 { margin: 0; font-size: 2.5rem; }
-    header p { color: #aaa; }
-    section { padding: 2rem; max-width: 900px; margin: auto; }
-    h2 { border-bottom: 2px solid #333; padding-bottom: 0.5rem; }
-    ul { padding-left: 1.5rem; }
-    .social-icons a { margin: 0 0.5rem; color: #aaa; font-size: 1.5rem; }
-    .contact { text-align: center; margin-top: 2rem; }
-    .blog-section { margin-top: 2rem; }
-    footer { background: #1f1f1f; text-align: center; padding: 1rem; font-size: 0.9rem; color: #777; }
-    .skill-bar { margin-bottom: 1rem; }
-    .skill-label { margin-bottom: 0.3rem; }
-    .bar-container { background-color: #2e2e2e; border-radius: 20px; overflow: hidden; }
-    .bar { height: 12px; border-radius: 20px; background: #4caf50; }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      background-color: #000;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    #matrixCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+    }
+    header {
+      background: #000;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(255, 255, 255, 0.2);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #fff;
+    }
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid #fff;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: .15em;
+      animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+      max-width: 100%;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #fff; }
+    }
+    .social-icons a {
+      margin: 0 0.5rem;
+      color: #fff;
+      font-size: 1.5rem;
+      text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.3);
+    }
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      background: #111;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    }
+    h2 {
+      border-bottom: 2px solid #fff;
+      padding-bottom: 0.5rem;
+      color: #fff;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    .contact {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #bbb;
+      box-shadow: 0 -4px 6px rgba(255, 255, 255, 0.2);
+    }
+    .skill-bar {
+      margin-bottom: 1rem;
+    }
+    .skill-label {
+      margin-bottom: 0.3rem;
+    }
+    .bar-container {
+      background-color: #222;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .bar {
+      height: 12px;
+      border-radius: 20px;
+      background: linear-gradient(to right, #fff, #888);
+    }
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+    [data-animate].active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    a {
+      color: #fff;
+      text-shadow: 0 0 3px #fff;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+      section { padding: 1rem; }
+    }
   </style>
 </head>
 <body>
+  <canvas id="matrixCanvas"></canvas>
   <header>
-    <h1>Soummya Mukhopadhyay</h1>
+    <h1 class="typewriter">Soummya Mukhopadhyay</h1>
     <p>Cybersecurity Consultant | Red Teamer | Offensive Security</p>
     <div class="social-icons">
       <a href="https://github.com/G37SYS73M" target="_blank"><i class="fab fa-github"></i></a>
@@ -34,21 +136,42 @@
     </div>
   </header>
 
-  <section>
+  <section data-animate>
     <h2>About Me</h2>
-    <p>I’m a seasoned Cybersecurity Consultant with 4+ years of experience in Red Teaming, Web/API VAPT, and adversarial simulation. I work extensively in industries like BFSI, Healthcare, and IT. Passionate about advanced offensive security and red team operations.</p>
+    <p>As a seasoned Cybersecurity Consultant with over three years of extensive industry experience, I have successfully assessed and executed numerous Red Team, Networks, and Web/API Vulnerability Assessment and Penetration Testing (VAPT) engagements across diverse sectors, including BSFI, IT Product & Service, and Healthcare. Actively engaged in ongoing exploration and research of Adversarial Tactics, Techniques, and Procedures (TTPs), I am unwaveringly committed to mitigating business risks by implementing advanced offensive security practices.
+    </p>
+    <p>
+Achievements: 
+<br>- CVE-2022-36193: SQL injection vulnerability in a School Management System.
+<br>- CVE-2022-46087: CloudSchool v3.0.1 is vulnerable to Cross Site Scripting (XSS)
+<br>- CVE-2023-27742: SQL injection vulnerability in IDURAR ERP/CRM.
+<br>- Winner at Winja CTF Nullcon 2022.
+<br>- 2nd Runner’s Up at Kolkata Police CTF 2022.
 
+</p>
+  </section>
+
+
+  <section data-animate>
     <h2>Skills</h2>
     <div class="skill-bar">
       <div class="skill-label">Red Teaming & Threat Emulation</div>
       <div class="bar-container"><div class="bar" style="width: 95%"></div></div>
     </div>
     <div class="skill-bar">
-      <div class="skill-label">Web Application/API </div>
+      <div class="skill-label">Infrastructure and WiFi Pentesting</div>
       <div class="bar-container"><div class="bar" style="width: 95%"></div></div>
     </div>
     <div class="skill-bar">
-      <div class="skill-label">Cloud Security</div>
+      <div class="skill-label">Malware Development and Reverse Engineering</div>
+      <div class="bar-container"><div class="bar" style="width: 70%"></div></div>
+    </div>
+    <div class="skill-bar">
+      <div class="skill-label">Web Application/APIs and Thick Client Pentesting</div>
+      <div class="bar-container"><div class="bar" style="width: 95%"></div></div>
+    </div>
+    <div class="skill-bar">
+      <div class="skill-label">Cloud Security Assessment</div>
       <div class="bar-container"><div class="bar" style="width: 85%"></div></div>
     </div>
     <div class="skill-bar">
@@ -56,46 +179,41 @@
       <div class="bar-container"><div class="bar" style="width: 85%"></div></div>
     </div>
     <div class="skill-bar">
-      <div class="skill-label">Infrastructure and WiFi Pentesting</div>
-      <div class="bar-container"><div class="bar" style="width: 95%"></div></div>
+      <div class="skill-label">Android Application Pentesting</div>
+      <div class="bar-container"><div class="bar" style="width: 60%"></div></div>
     </div>
+    </section>
 
+   <section data-animate>
     <h2>Certifications</h2>
     <ul>
-      <li><a herf="https://www.credly.com/badges/5128690c-195f-4593-830d-7db932cc4ee7/public_url">CISA - Certified Information Systems Auditor</a></li>
-      <li><a herf="https://www.credential.net/36ea7348-f8f5-4160-b845-7eb4222171a5">OSCP - Offensive Security Certified Professional</a></li>
-      <li><a herf="https://www.credential.net/991315db-bfc9-4a50-99d4-9c75f4dd2f6a#acc.gPAGq7ci">CRTP - Certified Red Team Professional</a></li>
+      <li><a href="https://www.credly.com/badges/5128690c-195f-4593-830d-7db932cc4ee7/public_url" target="_blank">CISA - Certified Information Systems Auditor</a></li>
+      <li><a href="https://www.credential.net/36ea7348-f8f5-4160-b845-7eb4222171a5" target="_blank">OSCP - Offensive Security Certified Professional</a></li>
+      <li><a href="https://www.credential.net/991315db-bfc9-4a50-99d4-9c75f4dd2f6a#acc.gPAGq7ci" target="_blank">CRTP - Certified Red Team Professional</a></li>
       <li>CEH Master - Certified Ethical Hacker</li>
     </ul>
+    </section>
 
-    <h2>Experience</h2>
-    <p><strong>Security Consultant – Payatu Security Consulting Pvt Ltd</strong> (2022–Present)</p>
+    <section data-animate>
+    <h2>Blogs</h2>
     <ul>
-      <li>Red Team Engagements, Pen Testing (Web/API, Thick Client, 802.11)</li>
-      <li>Risk & Cloud Audits, CTF Content Creation</li>
-    </ul>
-    <p><strong>Information Security Analyst – ISOAH Data Securities Pvt. Ltd.</strong> (2021–2022)</p>
-    <ul>
-      <li>Training & VAPT (Web/API, Network)</li>
-      <li>Organizer of “Ground Zero Hackathon”</li>
-    </ul>
-
-    <h2>Achievements</h2>
-    <ul>
-      <li>Null Kolkata Co-Leader & Speaker</li>
-      <li>CVE Contributor: CVE-2022-36193, CVE-2022-46087, CVE-2023-27742</li>
-      <li>Winner – WINJA CTF NULLCON 2022, Runner-up – Kolkata Police CTF</li>
-      <li>Reported High/Critical Vulns to NCIIPC</li>
-    </ul>
-
-    <div class="blog-section">
-      <h2>Blog</h2>
-      <p>Stay tuned for my latest blogs on Red Team tactics, adversary simulation, and capture-the-flag walkthroughs.</p>
-      <!-- Add blog post links or embed your blog feed here -->
-    </div>
+      <li><a href="https://payatu.com/blog/diving-into-signal-intelligence-sigint/" target="_blank">Diving into Signal Intelligence – SIGINT</a></li>
+      <li><a href="https://payatu.com/blog/hackthebox-object-writeup/" target="_blank">HackTheBox: Object Writeup</a></li>
+      <li><a href="https://payatu.com/blog/how-to-prevent-hacking-out-of-kiosk/" target="_blank">How to Prevent Hacking Out of KIOSK</a></li>
+      </ul>
   </section>
 
-  <section class="contact">
+
+     <section data-animate>
+    <h2>Open Source Projects</h2>
+    <ul>
+      <li><a href="https://github.com/G37SYS73M/AWS_C2_SETUP" target="_blank">AWS C2 Server Setup</a></li>
+      <li><a href="https://github.com/G37SYS73M/Phishing_Lake" target="_blank">Phishing Lake</a></li>
+      <li><a href="https://github.com/G37SYS73M/WIFY" target="_blank">WiFY - A semi-automated Wifi Pentesting Tool for Security Auditors.</a></li>
+      </ul>
+  </section>
+  
+  <section class="contact" data-animate>
     <h2>Contact</h2>
     <p>Email: <a href="mailto:soummyamukhopadhyay@gmail.com">soummyamukhopadhyay@gmail.com</a></p>
   </section>
@@ -103,5 +221,47 @@
   <footer>
     &copy; 2025 Soummya Mukhopadhyay. Built with ❤️ for GitHub Pages.
   </footer>
+
+  <script>
+    const canvas = document.getElementById('matrixCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const letters = "01";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#00ff00";
+      ctx.font = fontSize + "px Courier";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+    setInterval(drawMatrix, 33);
+
+    // Animate on scroll
+    const animEls = document.querySelectorAll('[data-animate]');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    animEls.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
